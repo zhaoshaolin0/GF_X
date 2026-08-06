@@ -11,8 +11,9 @@ using System.IO;
 using System.Text;
 using UnityEngine;
 using UnityGameFramework.Runtime;
-
+#if ENABLE_OBFUZ
 [Obfuz.ObfuzIgnore(Obfuz.ObfuzScope.TypeName | Obfuz.ObfuzScope.MethodName)]
+#endif
 /// <summary>
 /// 颜色表
 /// </summary>
@@ -46,7 +47,7 @@ public class ColorTable : DataRowBase
 
             int index = 0;
             index++;
-            m_Id = int.Parse(columnStrings[index++]);
+            m_Id = DataTableExtension.ParseInt(columnStrings[index++]);
             index++;
             ColorHex = columnStrings[index++];
 
@@ -66,6 +67,4 @@ public class ColorTable : DataRowBase
 
             return true;
         }
-
-//__DATA_TABLE_PROPERTY_ARRAY__
 }

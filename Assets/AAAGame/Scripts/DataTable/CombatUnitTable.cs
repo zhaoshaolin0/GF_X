@@ -11,8 +11,9 @@ using System.IO;
 using System.Text;
 using UnityEngine;
 using UnityGameFramework.Runtime;
-
+#if ENABLE_OBFUZ
 [Obfuz.ObfuzIgnore(Obfuz.ObfuzScope.TypeName | Obfuz.ObfuzScope.MethodName)]
+#endif
 /// <summary>
 /// CombatUnitTable
 /// </summary>
@@ -91,14 +92,14 @@ public class CombatUnitTable : DataRowBase
 
             int index = 0;
             index++;
-            m_Id = int.Parse(columnStrings[index++]);
+            m_Id = DataTableExtension.ParseInt(columnStrings[index++]);
             index++;
             PrefabName = columnStrings[index++];
-            AttackRadius = float.Parse(columnStrings[index++]);
-            MoveSpeed = float.Parse(columnStrings[index++]);
-            Hp = int.Parse(columnStrings[index++]);
-            Damage = int.Parse(columnStrings[index++]);
-            MaxAttackCount = int.Parse(columnStrings[index++]);
+            AttackRadius = DataTableExtension.ParseFloat(columnStrings[index++]);
+            MoveSpeed = DataTableExtension.ParseFloat(columnStrings[index++]);
+            Hp = DataTableExtension.ParseInt(columnStrings[index++]);
+            Damage = DataTableExtension.ParseInt(columnStrings[index++]);
+            MaxAttackCount = DataTableExtension.ParseInt(columnStrings[index++]);
 
             return true;
         }
@@ -121,6 +122,4 @@ public class CombatUnitTable : DataRowBase
 
             return true;
         }
-
-//__DATA_TABLE_PROPERTY_ARRAY__
 }

@@ -1,4 +1,4 @@
-﻿#	颜色表		
+#	颜色表		
 #	Id		ColorHex
 #	int		string
 #		备注	

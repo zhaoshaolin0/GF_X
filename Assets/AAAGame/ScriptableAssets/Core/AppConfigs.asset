@@ -17,13 +17,9 @@ MonoBehaviour:
   - CameraViewTable
   - ColorTable
   - CombatUnitTable
+  - Core/LanguagesTable
   - LevelTable
   - TestTable
-  - Core/EntityGroupTable
-  - Core/LanguagesTable
-  - Core/SoundGroupTable
-  - Core/UIGroupTable
-  - Core/UITable
   mConfigs:
   - GameConfig
   mLanguages:

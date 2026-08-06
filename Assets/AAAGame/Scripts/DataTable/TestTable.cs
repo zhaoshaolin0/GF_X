@@ -11,8 +11,9 @@ using System.IO;
 using System.Text;
 using UnityEngine;
 using UnityGameFramework.Runtime;
-
+#if ENABLE_OBFUZ
 [Obfuz.ObfuzIgnore(Obfuz.ObfuzScope.TypeName | Obfuz.ObfuzScope.MethodName)]
+#endif
 /// <summary>
 /// TestTable
 /// </summary>
@@ -154,7 +155,7 @@ public class TestTable : DataRowBase
 
             int index = 0;
             index++;
-            m_Id = int.Parse(columnStrings[index++]);
+            m_Id = DataTableExtension.ParseInt(columnStrings[index++]);
             index++;
             StringArr = DataTableExtension.ParseArray<string>(columnStrings[index++]);
             EnumValue = DataTableExtension.ParseEnum<CombatUnitEntity.CombatFlag>(columnStrings[index++]);
@@ -167,8 +168,8 @@ public class TestTable : DataRowBase
             BoolArr = DataTableExtension.ParseArray<bool>(columnStrings[index++]);
             Float2DArr = DataTableExtension.Parse2DArray<float>(columnStrings[index++]);
             Bool2DArr = DataTableExtension.Parse2DArray<bool>(columnStrings[index++]);
-            BoolValue = bool.Parse(columnStrings[index++]);
-            DateTimeValue = DateTime.Parse(columnStrings[index++]);
+            BoolValue = DataTableExtension.ParseBool(columnStrings[index++]);
+            DateTimeValue = DataTableExtension.ParseDateTime(columnStrings[index++]);
 
             return true;
         }
@@ -198,6 +199,4 @@ public class TestTable : DataRowBase
 
             return true;
         }
-
-//__DATA_TABLE_PROPERTY_ARRAY__
 }

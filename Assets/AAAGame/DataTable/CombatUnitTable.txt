@@ -1,4 +1,4 @@
-﻿#	CombatUnitTable							
+#	CombatUnitTable							
 #	ID		PrefabName	AttackRadius	MoveSpeed	Hp	Damage	MaxAttackCount
 #	int		string	float	float	int	int	int
 #		备注	预制体资源	攻击半径	移动速度	默认血量	伤害	单次攻击敌人个数
